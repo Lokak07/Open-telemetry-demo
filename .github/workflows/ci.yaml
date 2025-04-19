@@ -3,12 +3,7 @@
 name: flagd-ui-ci
 
 on:
-    
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'src/flagd-ui/**'
+  workflow_dispatch:  # ✅ Manual trigger (via GitHub UI)
 
   push:
     branches:
@@ -16,7 +11,11 @@ on:
     paths:
       - 'src/flagd-ui/**'
 
-  workflow_dispatch:    
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/flagd-ui/**   
 
 jobs:
   build:
