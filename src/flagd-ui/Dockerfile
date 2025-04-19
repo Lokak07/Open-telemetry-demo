@@ -20,5 +20,6 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
 
+# exposes port 4000
 EXPOSE 4000
 CMD ["npm", "start"]
