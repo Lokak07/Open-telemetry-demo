@@ -23,4 +23,4 @@ npm run dev
 ```
 
 Then you must navigate to `localhost:4000/feature`.
-.
+
