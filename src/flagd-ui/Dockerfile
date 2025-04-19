@@ -5,11 +5,9 @@ FROM node:20 AS builder
 
 WORKDIR /app
 
-COPY ./src/flagd-ui/package*.json ./
+COPY . .
 
 RUN npm ci
-
-COPY ./src/flagd-ui/. ./
 
 RUN npm run build
 
