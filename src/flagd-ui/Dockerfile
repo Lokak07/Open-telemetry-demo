@@ -1,31 +1,25 @@
-# Copyright The OpenTelemetry Authors
-# SPDX-License-Identifier: Apache-2.0
+# syntax=docker/dockerfile:1.4
 
-FROM node:20 AS builder
-
+FROM node:20-alpine AS builder
 WORKDIR /app
 
-COPY . .
-
+# Use local files relative to Docker build context
+COPY package*.json ./
 RUN npm ci
 
+COPY . ./
 RUN npm run build
 
-# -----------------------------------------------------------------------------
-
-FROM node:20-alpine
-
+# Production image
+FROM node:20-alpine AS runtime
 WORKDIR /app
 
-COPY ./src/flagd-ui/package*.json ./
-
-RUN npm ci --only=production
-
-COPY --from=builder /app/src/instrumentation.ts ./instrumentation.ts
-COPY --from=builder /app/next.config.mjs ./next.config.mjs
+COPY --from=builder /app/package*.json ./
+RUN npm ci --omit=dev
 
 COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
 
 EXPOSE 4000
-
 CMD ["npm", "start"]

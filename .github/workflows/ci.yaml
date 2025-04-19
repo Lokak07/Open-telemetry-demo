@@ -3,19 +3,17 @@
 name: flagd-ui-ci
 
 on:
-    pull_request:
-      branches:
-        - main
-      paths:
-        - 'src/flagd-ui/**'
-  
-    push:
-      branches:
-        - main
-      paths:
-        - 'src/flagd-ui/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/flagd-ui/**'
 
-# JOBS   
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/flagd-ui/**'
 
 jobs:
   build:
@@ -49,6 +47,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
+
+      - name: 📦 Install dependencies
+        working-directory: src/flagd-ui
+        run: npm ci
 
       - name: 🧹 Run ESLint
         working-directory: src/flagd-ui
