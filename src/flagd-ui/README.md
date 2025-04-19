@@ -15,7 +15,7 @@ docker compose or make commands.
 To run the app locally for development you must copy
 `src/flagd/demo.flagd.json` into `src/flagd-ui/data/demo.flagd.json`
 (create the directory and file if they do not exist yet). Make sure you're
-in the `src/flagd-ui` directory and run
+in the `src/flagd-ui` directory and run the
 the following command:
 
 ```bash
