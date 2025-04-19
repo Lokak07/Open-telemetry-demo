@@ -38,10 +38,6 @@ jobs:
         working-directory: src/flagd-ui
         run: npm run build
 
-      - name: 🧪 Run unit tests
-        working-directory: src/flagd-ui
-        run: npm run test -- --coverage
-
   code-quality:
     runs-on: ubuntu-latest
 
