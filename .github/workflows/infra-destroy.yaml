@@ -15,7 +15,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./new-relic
+        working-directory: ./eks-install
 
     steps:
       - name: Checkout the repository
