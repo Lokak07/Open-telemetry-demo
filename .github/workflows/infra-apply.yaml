@@ -49,7 +49,7 @@ jobs:
 
       - name: Download terraform.tfvars from S3
         run: |
-          aws s3 cp s3://my-secure-terraform-state-shakthi/terraform.tfvars terraform.tfvars
+          aws s3 cp s3://shakthi-tf-bucket/terraform.tfvars terraform.tfvars
 
       - name: Terraform init
         id: init
