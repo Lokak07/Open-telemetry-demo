@@ -31,7 +31,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: flagd
-          image: 'ghcr.io/open-feature/flagd:v0.11.1'
+          image: loka07/product-catalog:14577356920
           imagePullPolicy: IfNotPresent
           command:
             - /flagd-build
@@ -65,7 +65,7 @@ spec:
             - name: config-rw
               mountPath: /etc/flagd
         - name: flagdui
-          image: 'ghcr.io/open-telemetry/demo:1.12.0-flagdui'
+          image: loka07/product-catalog:14577356920
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -98,7 +98,7 @@ spec:
           - sh
           - -c
           - cp /config-ro/demo.flagd.json /config-rw/demo.flagd.json && cat /config-rw/demo.flagd.json
-          image: busybox
+          image: loka07/product-catalog:14577356920
           name: init-config
           volumeMounts:
           - mountPath: /config-ro
