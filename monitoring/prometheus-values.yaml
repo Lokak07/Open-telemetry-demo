@@ -1,0 +1,22 @@
+alertmanager:
+  enabled: true
+  persistentVolume:
+    enabled: true
+    storageClass: gp2-immediate
+
+server:
+  service:
+    type: ClusterIP
+  persistentVolume:
+    enabled: true
+    storageClass: gp2-immediate
+
+  ingress:
+    enabled: true
+    ingressClassName: alb  # or nginx
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+    hosts:
+      - prometheus.dev-ops.solutions
+    tls: []  # Enable cert-manager or Cloudflare TLS separately

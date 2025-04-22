@@ -1,18 +1,18 @@
 name: "Terraform Infrastructure Change Management Pipeline with GitHub Actions"
 
 on: 
-  push: 
-    branches:
-      - main
-    paths:
-      - eks-install/**
-      - .github/workflows/**
+  # push: 
+  #   branches:
+  #     - main
+  #   paths:
+  #     - eks-install/**
+  #     - .github/workflows/**
 
-  pull_request:
-    branches:
-      - main
-    paths:
-      - eks-install/**
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - eks-install/**
 
   workflow_dispatch:
     inputs:
